@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = React.createClass({
+class Main extends React.Component {
   render() {
     return (
       <div>
@@ -11,6 +11,5 @@ const Main = React.createClass({
       </div>
     );
   }
-});
-
+}
 export default Main;
