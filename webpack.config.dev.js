@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
@@ -24,12 +24,30 @@ module.exports = {
         loaders: ['babel'],
         include: path.join(__dirname, 'client')
       },
+      // jsx
+      {
+        test: /\.jsx$/,
+        loaders: ['babel'],
+        include: path.join(__dirname, 'client')
+      },
+      // JSON
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
       // CSS
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
-      }
-
+        loader: 'style-loader!css-loader'
+      },
+      // images
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192'
+      },
+      { test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, 
+        loader: 'file-loader?name=fonts/[name].[ext]' }
     ]
   }
 };
+
